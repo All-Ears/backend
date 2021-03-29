@@ -17,7 +17,7 @@ Displayed below is the structure of our project.
     instance/
         config.json
         password.txt
-    
+
     example_deployment_files/
         example_app_config.json
         example_nginx_site.conf
@@ -48,8 +48,8 @@ First, make sure all dependencies are installed.
     pip install -r requirements.txt
 
 Then, set the environment variables for the Flask development server.
-    
-    # Bash 
+
+    # Bash
     export FLASK_APP=main
     export FLASK_ENV=development
 
@@ -72,19 +72,20 @@ In development mode, the Flask development server will reload automatically when
 All REST API documentation for each of the URL Endpoints are in [API_DOCS.md](./API_DOCS.md).
 
 # Deployment
-In order to deploy the app one will need MariaDB version 10.5 (other versions not tested) installed on one's system 
-along with MariaDB Connector/C. On Ubuntu, one should install the `mariadb-server` package from MariaDB's official 
+
+In order to deploy the app one will need MariaDB version 10.5 (other versions not tested) installed on one's system
+along with MariaDB Connector/C. On Ubuntu, one should install the `mariadb-server` package from MariaDB's official
 repository (instructions [here](https://mariadb.org/download/)). In order to use the MariaDB Connector/C with Python's
 connector package `mariadb` one will need to install the development library for MariaDB (`libmariadb-dev` on Ubuntu).
 
-After installing all system requirements, one must then install first the `wheel` then `uwsgi` Python packages and make 
+After installing all system requirements, one must then install first the `wheel` then `uwsgi` Python packages and make
 a file named `wsgi.py`. It should have these contents:
 
     from main import app
-    
+
     if __name__ == "__main__":
         app.run()
 
-After doing all that, one will need to create an `.ini` file for one's uwsgi and a service file. Examples are provided 
+After doing all that, one will need to create an `.ini` file for one's uwsgi and a service file. Examples are provided
 in the `deployment_example_files` directory. After this one needs to write one's NGINX site config file. We use reverse
 proxy in our example. Open the firewall, start the service, reload NGINX and the app is deployed!

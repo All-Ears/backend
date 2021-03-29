@@ -1,9 +1,10 @@
 {
-    "SECRET_KEY": "something from base64.b64encode(os.urandom(32))",
-    "DEBUG": false,
-    "DB_USER": "admin",
-    "DB_PASSWORD": "password",
-    "DB_HOST": "localhost",
-    "DB_PORT": 3306,
-    "DB_NAME": "all_ears"
+  "SECRET_KEY": "something from base64.b64encode(os.urandom(32))",
+  "DEBUG": false,
+  "DB_USER": "admin",
+  "DB_PASSWORD": "password",
+  "DB_HOST": "localhost",
+  "DB_PORT": 3306,
+  "DB_NAME": "all_ears",
+  "MIKE_URL": "https://cites.org/sites/default/files/MIKE/2020-05-14_PIKEStatsUpTo2019FusionTableFormatCITESWebPage.csv"
 }
