@@ -7,8 +7,6 @@ import requests
 import csv
 from stringcase import camelcase
 
-MIKE_CSV_ID = '1z-fPcdTbZ97QSGEkwthPvs1KInGeu4j6'
-GOOGLE_DRIVE_URL = 'https://drive.google.com/u/0/uc'
 VALID_COUNTRY_CODES = {'ga', 'cd', 'cg', 'cm', 'cf', 'ci', 'lr', 'gh', 'td'}
 
 
@@ -101,11 +99,8 @@ def register_admin_routes(app: Flask, mike_store: MikeRecordProvider,
 
     @admin.route('/update', methods=['GET'])
     def update_from_mike():
-        res = requests.get(GOOGLE_DRIVE_URL, {
-            'id': MIKE_CSV_ID,
-            'export': 'download'
-        })
-        mike_records = parse_mike_csv(res.content.decode('utf-8').splitlines())
+        res = requests.get(app.config["MIKE_URL"])
+        mike_records = parse_mike_csv(res.text.splitlines())
         if mike_records is None:
             return jsonify({
                 'message':

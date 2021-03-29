@@ -186,6 +186,7 @@ class MariaDBRecordProvider(MikeRecordProvider, CountryRecordProvider):
     def remove_mike_records(self,
                             record_keys: Iterable[MikeRecord.PrimaryKey]):
         with self._get_connection() as conn:
+
             cur = conn.cursor()
             try:
                 for record_key in record_keys:
