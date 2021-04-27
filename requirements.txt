@@ -1,3 +1,5 @@
+wheel
+uwsgi
 flask
 argon2_cffi
 mariadb
