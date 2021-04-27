@@ -5,9 +5,9 @@ After=network.target
 [Service]
 User=<user>
 Group=www-data
-WorkingDirectory=/home/allears/backend
-Environment="PATH=/home/<user>/backend/<virtual environment>/bin"
-ExecStart=/home/<user>/backend/<virtual environment>/bin/uwsgi --ini /home/<user>/backend/backend.ini
+WorkingDirectory=<path to backend>
+Environment="PATH=<path to backend>/<virtual environment>/bin"
+ExecStart=<path to backend>/<virtual environment>/bin/uwsgi --ini <path to backend>/backend.ini
 
 [Install]
 WantedBy=multi-user.target
