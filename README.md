@@ -87,5 +87,5 @@ a file named `wsgi.py`. It should have these contents:
         app.run()
 
 After doing all that, one will need to create an `.ini` file for one's uwsgi and a service file. Examples are provided
-in the `deployment_example_files` directory. After this one needs to write one's NGINX site config file. We use reverse
+in the `example_deployment_files` directory. After this one needs to write one's NGINX site config file. We use reverse
 proxy in our example. Open the firewall, start the service, reload NGINX and the app is deployed!
